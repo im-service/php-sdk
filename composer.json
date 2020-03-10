@@ -1,0 +1,19 @@
+{
+    "name": "im-service/php-sdk",
+    "description": "IM通信服务-PHP-SDK",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "戒尺",
+            "email": "843161352@qq.com"
+        }
+    ],
+    "require": {
+        "guzzlehttp/guzzle": "^6.5"
+    },
+    "autoload": {
+        "psr-4": {
+            "ImService\\": "src/"
+        }
+    }
+}
