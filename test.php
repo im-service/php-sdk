@@ -30,8 +30,8 @@ $accessToken->setCache($cacheDriver);
 /**
  * 创建用户Token
  */
-$member_token = new \ImService\Member\MemberToken($accessToken);
-$token = $member_token->makeToken('aaa','android');
+//$member_token = new \ImService\Member\MemberToken($accessToken);
+//$token = $member_token->makeToken('aaa','android');
 /**
  * 创建群组
  */
@@ -47,6 +47,10 @@ $token = $member_token->makeToken('aaa','android');
  */
 //$member_token = new \ImService\Member\MemberToken($accessToken);
 //$res = $member_token->getWebSocketConnectionUri($token);
-
-var_dump($res);
+/**
+ * 推送消息到账户
+ */
+//$message = new \ImService\Message\Message($accessToken);
+//$res = $message->pushMessageToMember('aaa',['type'=>'test','a'=>1],'android');
+//var_dump($res);
 //var_dump($token);
