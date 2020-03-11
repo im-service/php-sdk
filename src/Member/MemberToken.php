@@ -25,7 +25,7 @@ class MemberToken
         if (strlen($uuid) <= 0) {
             $uuid = Util::getRandomString(15);
         }
-        return sprintf("ws://%s/client?appid=%s&token=%s&uuid=%s", $this->accessToken->getHost(), $this->accessToken->getAppId(), $token, $uuid);
+        return sprintf("ws://%s/client?appid=%s&token=%s&uuid=%s", str_replace(['http://','https://'],'',$this->accessToken->getHost()), $this->accessToken->getAppId(), $token, $uuid);
     }
 
     /**

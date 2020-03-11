@@ -52,5 +52,10 @@ $accessToken->setCache($cacheDriver);
  */
 //$message = new \ImService\Message\Message($accessToken);
 //$res = $message->pushMessageToMember('aaa',['type'=>'test','a'=>1],'android');
+/**
+ * 设置回调
+ */
+//$seting = new \ImService\Callback\Seting($accessToken);
+//$seting->setCallback('test','https://fanyi.baidu.com/zh/seting');
 //var_dump($res);
 //var_dump($token);
