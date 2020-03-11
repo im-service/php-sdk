@@ -17,6 +17,8 @@ class Util
 
     /**
      * 获取随机字符
+     * @param int $length
+     * @return false|string
      */
     public static function getRandomString($length = 10)
     {
@@ -27,6 +29,8 @@ class Util
 
     /**
      * 过滤微信昵称中的表情（不过滤 HTML 符号）
+     * @param string $nickname
+     * @return string
      */
     public static function filterNickname($nickname)
     {

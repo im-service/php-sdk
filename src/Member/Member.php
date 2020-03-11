@@ -1,6 +1,10 @@
 <?php
+
 namespace ImService\Member;
-use ImService\AccessToken;
+
+use ImService\Bridge\AccessTokenTrait;
+use ImService\Bridge\Http;
+use ImService\Bridge\Serializer;
 
 /**
  * Class Member
@@ -8,13 +12,27 @@ use ImService\AccessToken;
  */
 class Member
 {
+    use AccessTokenTrait;
+
     /**
-     * @var AccessToken|null
+     * 创建用户
+     * @param string $account
+     * @param string $nickname
+     * @param string $portrait
+     * @param array $extras
+     * @throws \Exception
      */
-    protected $accessToken = null;
-    public function __construct(AccessToken $accessToken)
+    public function makeMember(string $account, string $nickname, string $portrait, array $extras = [])
     {
-        $this->accessToken = $accessToken;
+        $res = Http::request('POST', $this->accessToken->getHost() . '/api/member/createMember')->withBody([
+            'account' => $account,
+            'nickname' => $nickname,
+            'portrait' => $portrait,
+            'extras' => Serializer::jsonEncode($extras)
+        ])->withAccessToken($this->accessToken)->send();
+        if ($res->get('status') != 200) {
+            throw new \Exception($res->get('msg'));
+        }
     }
 
     /**

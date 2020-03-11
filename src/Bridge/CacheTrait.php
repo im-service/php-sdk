@@ -1,6 +1,9 @@
 <?php
+
 namespace ImService\Bridge;
+
 use Doctrine\Common\Cache\Cache;
+
 /**
  * Trait CacheTrait
  * @package ImService\Bridge
@@ -14,8 +17,10 @@ trait CacheTrait
 
     /**
      * 设置缓存驱动
+     * @param Cache $cache
+     * @return $this
      */
-    public function setCache(\Doctrine\Common\Cache\Cache $cache)
+    public function setCache(Cache $cache)
     {
         $this->cache = $cache;
         return $this;
@@ -23,6 +28,7 @@ trait CacheTrait
 
     /**
      * 获取缓存驱动
+     * @return Cache
      */
     public function getCache()
     {

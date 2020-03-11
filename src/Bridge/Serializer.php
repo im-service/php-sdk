@@ -13,6 +13,9 @@ class Serializer
 {
     /**
      * json encode
+     * @param array $data
+     * @param array $context
+     * @return bool|false|float|int|string
      */
     public static function jsonEncode($data, array $context = array())
     {
@@ -27,8 +30,11 @@ class Serializer
 
     /**
      * json decode
+     * @param $data
+     * @param array $context
+     * @return mixed
      */
-    public static function jsonDecode($data, array $context = array())
+    public static function jsonDecode(string $data, array $context = array())
     {
         $defaults = array(
             'json_decode_associative' => true,
@@ -41,6 +47,9 @@ class Serializer
 
     /**
      * xml encode
+     * @param array $data
+     * @param array $context
+     * @return bool|float|int|string
      */
     public static function xmlEncode($data, array $context = array())
     {
@@ -57,6 +66,9 @@ class Serializer
 
     /**
      * xml decode
+     * @param string $data
+     * @param array $context
+     * @return array|mixed|string
      */
     public static function xmlDecode($data, array $context = array())
     {
@@ -65,6 +77,8 @@ class Serializer
 
     /**
      * xml/json to array
+     * @param string $string
+     * @return array
      */
     public static function parse($string)
     {
@@ -81,6 +95,8 @@ class Serializer
 
     /**
      * check is json string
+     * @param string $data
+     * @return bool
      */
     public static function isJSON($data)
     {
@@ -89,6 +105,8 @@ class Serializer
 
     /**
      * check is xml string
+     * @param string $data
+     * @return bool
      */
     public static function isXML($data)
     {
