@@ -72,7 +72,8 @@ class AccessToken
         if($res->get('status')==200){
             $this->token = $res->get('token');
             if($this->cache instanceof Cache){
-                $this->cache->save($this->host.'/api/auth/getAccessToken',$this->token);
+                $expire = strtotime($res->get('expire'))-time();
+                $this->cache->save($this->host.'/api/auth/getAccessToken',$this->token,$expire<=0?0:$expire);
             }
             return $this->token;
         }
