@@ -29,4 +29,20 @@ class Seting
             throw new \Exception($res->get('msg'));
         }
     }
+
+    /**
+     * @param $key
+     * @return mixed|null
+     * @throws \Exception
+     */
+    public function getCallback($key)
+    {
+        $res = Http::request('POST', $this->accessToken->getHost() . '/api/callback/getCallback')->withBody([
+            'key' => $key
+        ])->withAccessToken($this->accessToken)->send();
+        if ($res->get('status') != 200) {
+            throw new \Exception($res->get('msg'));
+        }
+        return $res->get('uri');
+    }
 }
