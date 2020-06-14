@@ -1,0 +1,67 @@
+#### 公共缓存篇
+### 缓存
+
+SDK 使用 ``doctrine/cache`` 作为缓存组件，该组件包含多种缓存驱动，开发者可以自由选择，详情请参考官方文档：
+
+http://doctrine-orm.readthedocs.org/projects/doctrine-orm/en/latest/reference/caching.html
+
+Filesystem
+
+```php
+$cacheDriver = new \Doctrine\Common\Cache\FilesystemCache('./cacheDir');
+```
+
+APC
+
+```php
+$cacheDriver = new \Doctrine\Common\Cache\ApcCache();
+```
+
+Memcache
+
+```php
+$memcache = new Memcache();
+$memcache->connect('127.0.0.1', 11211);
+
+$cacheDriver = new \Doctrine\Common\Cache\MemcacheCache();
+$cacheDriver->setMemcache($memcache);
+```
+
+Mamcached
+
+```php
+$memcached = new Memcached();
+$memcached->addServer('127.0.0.1', 11211);
+
+$cacheDriver = new \Doctrine\Common\Cache\MemcachedCache();
+$cacheDriver->setMemcached($memcached);
+```
+
+Xcache
+
+```php
+$cacheDriver = new \Doctrine\Common\Cache\XcacheCache();
+```
+
+Redis
+
+```php
+$redis = new Redis();
+$redis->connect('127.0.0.1', 6379);
+
+$cacheDriver = new \Doctrine\Common\Cache\RedisCache();
+$cacheDriver->setRedis($redis);
+```
+
+
+
+
+
+
+
+
+
+
+
+#####  [返回文档](./README.md)
+
